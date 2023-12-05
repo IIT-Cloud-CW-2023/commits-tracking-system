@@ -5,4 +5,6 @@ import com.DeveloperProductivityTracker.commitstrackingsystem.model.GitHubCommit
 import java.util.List;
 public interface GitHubCommitService {
     List<GitHubCommit> getGitHubCommits();
+
+    List<GitHubCommit> getAllHubCommits();
 }

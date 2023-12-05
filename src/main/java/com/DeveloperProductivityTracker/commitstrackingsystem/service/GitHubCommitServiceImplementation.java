@@ -32,6 +32,12 @@ public class GitHubCommitServiceImplementation implements GitHubCommitService {
         return gitHubCommits;
 
     }
+
+    @Override
+    public List<GitHubCommit> getAllHubCommits() {
+        return this.gitHubCommitsRepository.findAll();
+    }
+
     private GitHubCommit generateGitHubCommitsObject(GitHubCommitsDto gitHubCommitsDto) {
         return GitHubCommit.builder()
                 .gitHubId(gitHubCommitsDto.getId())

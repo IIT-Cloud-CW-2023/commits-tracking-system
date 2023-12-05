@@ -20,4 +20,8 @@ public class GitHubCommitsController {
     public ResponseEntity<List<GitHubCommit>> getGitHubCommits() {
         return ResponseEntity.ok(this.gitHubCommitService.getGitHubCommits());
     }
+    @GetMapping("/commits/get-all")
+    public ResponseEntity<List<GitHubCommit>> getAllHubCommits() {
+        return ResponseEntity.ok(this.gitHubCommitService.getAllHubCommits());
+    }
 }
