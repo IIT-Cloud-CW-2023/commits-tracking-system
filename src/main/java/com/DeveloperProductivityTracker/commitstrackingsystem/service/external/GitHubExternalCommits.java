@@ -17,15 +17,15 @@ public class GitHubExternalCommits {
 
     private final RestTemplate restTemplate;
 
-    @Value("${github.user-detail-url}")
-    private String gitHubUserDetailsUrl;
+    @Value("${github.commits-detail-url}")
+    private String gitHubCommitsDetailsUrl;
 
     public GitHubExternalCommits(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     public List<GitHubCommitsDto> getUserDetails() {
-        ResponseEntity<List<GitHubCommitsDto>> response = restTemplate.exchange(gitHubUserDetailsUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
+        ResponseEntity<List<GitHubCommitsDto>> response = restTemplate.exchange(gitHubCommitsDetailsUrl, HttpMethod.GET, null, new ParameterizedTypeReference<>() {
         });
         return response.getBody();
     }

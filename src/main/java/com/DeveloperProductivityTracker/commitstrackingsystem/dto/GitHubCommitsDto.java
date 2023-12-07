@@ -9,20 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GitHubCommitsDto {
-    @JsonProperty("login")
-    private String login;
-
-    @JsonProperty("id")
-    private int id;
+    @JsonProperty("sha")
+    private String sha;
 
     @JsonProperty("node_id")
     private String nodeId;
 
-    @JsonProperty("avatar_url")
-    private String avatarUrl;
-
-    @JsonProperty("gravatar_id")
-    private String gravatarId;
+    @JsonProperty("commit")
+    private Commit commit;
 
     @JsonProperty("url")
     private String url;
@@ -30,39 +24,79 @@ public class GitHubCommitsDto {
     @JsonProperty("html_url")
     private String htmlUrl;
 
-    @JsonProperty("followers_url")
-    private String followersUrl;
+    @JsonProperty("comments_url")
+    private String commentsUrl;
 
-    @JsonProperty("following_url")
-    private String followingUrl;
+    @JsonProperty("author")
+    private Author author;
 
-    @JsonProperty("gists_url")
-    private String gistsUrl;
+    @JsonProperty("committer")
+    private Author committer;
 
-    @JsonProperty("starred_url")
-    private String starredUrl;
+    @JsonProperty("parents")
+    private Parent[] parents;
 
-    @JsonProperty("subscriptions_url")
-    private String subscriptionsUrl;
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Commit {
+        private Author author;
+        private Author committer;
+        private String message;
+        private Tree tree;
+        private String url;
+        private int comment_count;
+        private Verification verification;
+    }
 
-    @JsonProperty("organizations_url")
-    private String organizationsUrl;
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Author {
+        private String login;
+        private int id;
+        private String node_id;
+        private String avatar_url;
+        private String gravatar_id;
+        private String url;
+        private String html_url;
+        private String followers_url;
+        private String following_url;
+        private String gists_url;
+        private String starred_url;
+        private String subscriptions_url;
+        private String organizations_url;
+        private String repos_url;
+        private String events_url;
+        private String received_events_url;
+        private String type;
+        private boolean site_admin;
+    }
 
-    @JsonProperty("repos_url")
-    private String reposUrl;
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Tree {
+        private String sha;
+        private String url;
+    }
 
-    @JsonProperty("events_url")
-    private String eventsUrl;
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Verification {
+        private boolean verified;
+        private String reason;
+        private String signature;
+        private String payload;
+    }
 
-    @JsonProperty("received_events_url")
-    private String receivedEventsUrl;
-
-    @JsonProperty("type")
-    private String type;
-
-    @JsonProperty("site_admin")
-    private boolean siteAdmin;
-
-    @JsonProperty("contributions")
-    private int contributions;
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class Parent {
+        private String sha;
+        private String url;
+        private String html_url;
+    }
 }
