@@ -22,14 +22,5 @@ public class GitHubCommit {
     private String reposUrl;
     private String type;
     private boolean siteAdmin;
-    private int contributions;
-
-    // Additional fields based on the modified GitHubCommitsDto class
-    private String sha;
-    private String url;
-    private String htmlUrl;
-    private String commentsUrl;
-    private GitHubCommitsDto.Author author;
-    private GitHubCommitsDto.Author committer;
-    private GitHubCommitsDto.Parent[] parents;
+    private int commits;
 }

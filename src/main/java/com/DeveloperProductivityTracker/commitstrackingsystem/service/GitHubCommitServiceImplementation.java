@@ -42,12 +42,14 @@ public class GitHubCommitServiceImplementation implements GitHubCommitService {
         return GitHubCommit.builder()
                 .gitHubId(gitHubCommitsDto.getId())
                 .login(gitHubCommitsDto.getLogin())
-                .contributions(gitHubCommitsDto.getContributions())
+                .commits(gitHubCommitsDto.getCommits())
                 .type(gitHubCommitsDto.getType())
                 .siteAdmin(gitHubCommitsDto.isSiteAdmin())
                 .reposUrl(gitHubCommitsDto.getReposUrl())
                 .nodeId(gitHubCommitsDto.getNodeId())
                 .build();
+
+
     }
 
 }
