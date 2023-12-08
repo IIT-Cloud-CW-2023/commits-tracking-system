@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /api/v1/commits-tracking-system
 
 github:
   commits-detail-url: https://api.github.com/repos/barchart/marketdata-api-js/contributors
