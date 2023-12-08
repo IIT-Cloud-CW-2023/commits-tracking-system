@@ -16,14 +16,26 @@ spec:
     spec:
       containers:
         - name: commits-tracking-system
-          image: gcr.io/PROJECT_ID/IMAGE:TAG  # Replace with your Docker Hub image and tag
+          image: gcr.io/iitcloudcw/commits-tracking-system:prod  # Replace with your Docker Hub image and tag
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/commits-tracking-system/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /api/v1/commits-tracking-system/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
           resources:
             requests:
-              cpu: "50m"
-              memory: "80Mi"
+              cpu: "300m"
+              memory: "400Mi"
             limits:
               cpu: "500m"
               memory: "512Mi"

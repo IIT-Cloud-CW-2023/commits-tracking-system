@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: 8080
 
 github:
   commits-detail-url: https://api.github.com/repos/barchart/marketdata-api-js/contributors
