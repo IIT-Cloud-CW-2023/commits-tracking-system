@@ -32,14 +32,12 @@ jobs:
       - name: Build with Maven
         run: mvn clean install -DskipTests
 
-      - name: Install required packages
+      - name: Install apt-get packages
         run: |
-            sudo apt-get update
-            sudo apt-get install sudo -y
-            sudo apt-get update
-            sudo apt-get install htop -y
-            sudo apt-get install sysstat
-            sudo apt-get install stress -y
+          apt-get update
+          apt-get install sudo -y
+          sudo apt-get install htop -y
+          sudo apt-get install stress -y         
 
       - name: Setup Google Cloud CLI
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@0.1.3
