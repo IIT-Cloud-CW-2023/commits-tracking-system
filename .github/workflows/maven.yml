@@ -77,5 +77,4 @@ jobs:
           kubectl apply -f service.yaml
           kubectl apply -f deployment.yaml
           kubectl rollout restart deployment $DEPLOYMENT_NAME
-          kubectl autoscale deployment $DEPLOYMENT_NAME --max=4 --cpu-percent=70
           kubectl get services -o wide
